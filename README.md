@@ -7,11 +7,12 @@ Supports getting results from:
 # Requirements
 - Python3
 - Windows PowerShell
-Before you do anything, run **configure.bat**.
+# Configuration
+Run `configure.bat` to configure requirements.
 # Usage
 Create a text file in *plans/* directory with your document plan.\
 Run `main.py` and enter name of this file.
-# Creating plan
+## Creating plan
 Example:
 - `lang_code;en-US` - Set **search language** to **English**
 - `ggl;BIOS definition` - Search **Google** for "**BIOS definition**"
