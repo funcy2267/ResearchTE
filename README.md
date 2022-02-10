@@ -1,16 +1,16 @@
 # About
-**ResearchTE** automates researching by generating document with answers to given questions.\
+`ResearchTE` automates researching by generating document with answers to given questions.\
 Supports getting results from:
 - Google
 - DuckDuckGo (with images)
 - Wikipedia
 # Requirements
-- Python3
+- Python 3
 - Windows PowerShell
 # Configuration
-Run `configure.bat` to configure requirements.
+Run `configure.bat` to configure requirements on Windows.
 # Usage
-Create a text file in *plans/* directory with your document plan.\
+Create a text file in `plans/` directory with your document plan.\
 Run `main.py` and enter name of this file.
 ## Creating plan
 Example:

@@ -1,5 +1,5 @@
-*.bak
 __pycache__/
+
 /bin/
 /out/
 /plans/

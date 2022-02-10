@@ -1,10 +1,6 @@
-import importlib.util
 import io
 import os
-
-research_spec = importlib.util.spec_from_file_location("research", '.\\research.py')
-research = importlib.util.module_from_spec(research_spec)
-research_spec.loader.exec_module(research)
+import research
 
 ProjectPath = os.getcwd()
 PlansPath = '.\\plans\\'
