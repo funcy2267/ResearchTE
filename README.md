@@ -6,12 +6,14 @@ Supports getting results from:
 - Wikipedia
 # Requirements
 - Python 3
-- Windows PowerShell
 # Configuration
-Run `configure.bat` to configure requirements on Windows.
+### Linux
+Run `setup-linux.sh` on Linux.
+### Windows
+Run `setup-windows.ps1` on Windows.
 # Usage
-Create a text file in `plans/` directory with your document plan.\
-Run `main.py` and enter name of this file.
+Create a text file in `plans/` directory with your research plan.\
+Run `main.py` and enter name of this file. Word document + markdown file will be saved in `output/` folder.
 ## Creating plan
 Example:
 - `lang_code;en-US` - Set **search language** to **English**

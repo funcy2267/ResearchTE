@@ -1,17 +1,18 @@
 import io
 import os
+import platform
 import research
 
-ProjectPath = os.getcwd()
-PlansPath = '.\\plans\\'
-OutputPath = '.\\out\\'
+PlatformName = platform.system()
+PlansPath = './plans/'
+OutputPath = './output/'
 
-markdown_output = OutputPath+'output.md'
-word_output = OutputPath+'output.docx'
+markdown_output = OutputPath+"output.md"
+word_output = OutputPath+"output.docx"
 
-def md_gen(plan_name):
+def md_gen(plan_file):
     print("Generating Markdown file...")
-    plan = io.open(PlansPath+plan_name, "r", encoding="utf-8").read()
+    plan = io.open(PlansPath+plan_file, "r", encoding="utf-8").read()
     md_endl = '  '
     output = []
     for line in plan.split('\n'):
@@ -43,10 +44,20 @@ def md_gen(plan_name):
     print("Markdown file generated.")
 
 def md_to_docx():
+    if PlatformName == "Linux":
+        PANDOC_BIN = 'pandoc'
+    if PlatformName == "Windows":
+        PANDOC_BIN = './bin/pandoc.exe'
     print("Converting Markdown to docx...")
-    os.system(ProjectPath+'\\bin\\pandoc.exe -f gfm -t docx '+markdown_output+" -o "+word_output)
+    os.system(PANDOC_BIN+' -f gfm -t docx '+markdown_output+" -o "+word_output)
     print("Converted.")
 
-md_gen(input("Plan name: "))
+def open_result():
+    if PlatformName == "Linux":
+        os.system('libreoffice '+word_output)
+    if PlatformName == "Windows":
+        os.system('start '+word_output)
+
+md_gen(input("Plan file: "))
 md_to_docx()
-os.system('start '+word_output)
+open_result()
