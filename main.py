@@ -4,8 +4,8 @@ import platform
 import research
 
 PlatformName = platform.system()
-PlansPath = './plans/'
-OutputPath = './output/'
+PlansPath = 'plans/'
+OutputPath = 'output/'
 
 markdown_output = OutputPath+"output.md"
 word_output = OutputPath+"output.docx"
@@ -47,16 +47,16 @@ def md_to_docx():
     if PlatformName == "Linux":
         PANDOC_BIN = 'pandoc'
     if PlatformName == "Windows":
-        PANDOC_BIN = './bin/pandoc.exe'
+        PANDOC_BIN = 'bin/pandoc.exe'
     print("Converting Markdown to docx...")
-    os.system(PANDOC_BIN+' -f gfm -t docx '+markdown_output+" -o "+word_output)
+    subprocess.call([PANDOC_BIN, '-f', 'gfm', '-t', 'docx', markdown_output, '-o', word_output])
     print("Converted.")
 
 def open_result():
     if PlatformName == "Linux":
-        os.system('libreoffice '+word_output)
+        subprocess.call(['xdg-open', word_output])
     if PlatformName == "Windows":
-        os.system('start '+word_output)
+        subprocess.call(['start', word_output])
 
 md_gen(input("Plan file: "))
 md_to_docx()
