@@ -1,5 +1,6 @@
 import io
 import os
+import subprocess
 import platform
 import research
 
@@ -50,14 +51,7 @@ def md_to_docx():
         PANDOC_BIN = 'bin/pandoc.exe'
     print("Converting Markdown to docx...")
     subprocess.call([PANDOC_BIN, '-f', 'gfm', '-t', 'docx', markdown_output, '-o', word_output])
-    print("Converted.")
+    print("Converted. Output files have been saved to output/ directory.")
 
-def open_result():
-    if PlatformName == "Linux":
-        subprocess.call(['xdg-open', word_output])
-    if PlatformName == "Windows":
-        subprocess.call(['start', word_output])
-
-md_gen(input("Plan file: "))
+md_gen(input("Plan file name: "))
 md_to_docx()
-open_result()
